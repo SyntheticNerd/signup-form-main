@@ -19,7 +19,14 @@ export default function SignUp({ setSuccess }) {
         setValidForm(true);
       };
     }
-    validForm && console.log("Success");
+    if(validForm){
+      console.log("Success");
+      setSuccess("true");
+      const timer = setTimeout(() => {
+        setSuccess("false");
+      }, 1880);
+      return () => clearTimeout(timer);
+    }
   };
 
   const isValid = (target) => {

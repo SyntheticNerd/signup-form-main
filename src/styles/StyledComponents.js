@@ -62,6 +62,7 @@ export const PromoBtn = styled.button`
 `;
 
 export const SuccessModal = styled.div`
+  display: ${({ display })=>display==="true"?"block":"none"};
   background-image: url(${process.env.PUBLIC_URL + "/images/confetti-test.gif"});
   background-repeat: no-repeat;
   background-size: 100%;

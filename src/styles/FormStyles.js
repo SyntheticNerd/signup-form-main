@@ -16,6 +16,7 @@ export const SignUpForm = styled.form`
     margin-bottom: 32px;
     b {
       color: hsl(0, 100%, 74%);
+      cursor: pointer;
     }
   }
   input[type="submit"] {
@@ -29,18 +30,30 @@ export const SignUpForm = styled.form`
     border: none;
     box-shadow: 0px 4px 0px hsl(154, 50%, 40%);
     cursor: pointer;
-    &:hover{
-        background-color: hsl(154, 70%, 60%);
+    &:hover {
+      background-color: hsl(154, 70%, 60%);
     }
   }
 `;
 export const InputWrap = styled.div`
-  border: 2px solid ${({ valid }) => (valid === "true" ? `lightgrey` : `red`)};
+  border: 2px solid
+    ${({ valid }) => (valid === "true" ? `lightgrey` : `hsl(0, 100%, 74%)`)};
   border-radius: 0.5em;
   position: relative;
   &:focus-within {
     border: 2px solid
-      ${(props) => (props.valid === "true" ? `hsl(249, 10%, 26%)` : `red`)};
+      ${({ valid }) =>
+        valid === "true" ? `hsl(249, 10%, 26%)` : `hsl(0, 100%, 74%)`};
+    &:hover {
+      border: 2px solid
+        ${({ valid }) =>
+          valid === "true" ? `hsl(249, 10%, 26%)` : `hsl(0, 100%, 74%)`};
+    }
+  }
+  &:hover {
+    border: 2px solid
+      ${({ valid }) =>
+        valid === "true" ? `hsl(246, 25%, 77%)` : `hsl(0, 100%, 74%)`};
   }
   & > input {
     border: none;

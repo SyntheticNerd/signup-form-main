@@ -4,8 +4,8 @@ export const SignUpForm = styled.form`
   display: flex;
   flex-direction: column;
   padding: 5%;
-  gap: 24px;
-  border-radius: 1em;
+  gap: 24px 24px;
+  border-radius: 0.5em;
   box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.2);
   background-color: white;
   & > p {
@@ -23,9 +23,10 @@ export const SignUpForm = styled.form`
     background-color: hsl(154, 59%, 51%);
     color: white;
     font-family: "Poppins";
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.15em;
-    padding: 3.5%;
+    padding: 1.3em;
+    /* padding: max(1.5em, 3.5%) max(4em, 3.5%); */
     border-radius: 0.5em;
     border: none;
     box-shadow: 0px 4px 0px hsl(154, 50%, 40%);
@@ -36,36 +37,36 @@ export const SignUpForm = styled.form`
   }
 `;
 export const InputWrap = styled.div`
-  border: 2px solid
+  border: 1px solid
     ${({ valid }) => (valid === "true" ? `lightgrey` : `hsl(0, 100%, 74%)`)};
-  border-radius: 0.5em;
+  border-radius: 0.3em;
   position: relative;
+  display: flex;
   &:focus-within {
-    border: 2px solid
+    border: 1px solid
       ${({ valid }) =>
         valid === "true" ? `hsl(249, 10%, 26%)` : `hsl(0, 100%, 74%)`};
     &:hover {
-      border: 2px solid
+      border: 1px solid
         ${({ valid }) =>
           valid === "true" ? `hsl(249, 10%, 26%)` : `hsl(0, 100%, 74%)`};
     }
   }
   &:hover {
-    border: 2px solid
+    border: 1px solid
       ${({ valid }) =>
         valid === "true" ? `hsl(246, 25%, 77%)` : `hsl(0, 100%, 74%)`};
   }
   & > input {
     border: none;
     outline: none;
-    padding: 3.5%;
     font-family: "Poppins";
     font-weight: 600;
-    font-size: 1em;
-    border-radius: 0.5em;
+    font-size: min(3.5vw, 1em);
+    border-radius: 0.3em;
+    padding: max(1.2em, 3.5%);
     width: 93%;
   }
-
   &::before {
     ${({ valid }) => valid === "true" && `display: none`}
     content: "${({ errormsg }) => errormsg}";

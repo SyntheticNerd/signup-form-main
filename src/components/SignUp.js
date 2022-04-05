@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { SignUpForm, InputWrap } from "../styles/FormStyles";
 
 export default function SignUp() {
@@ -9,14 +9,17 @@ export default function SignUp() {
   const [password, setPassword] = useState(input);
   const [validForm, setValidForm] = useState(true);
 
-  const submit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     for (let i = 0; i < e.target.length; i++) {
       if (!e.target[i].checkValidity() || !e.target[i].value.length) {
         setValidForm(false);
         return;
-      } else setValidForm(true);
+      } else {
+        setValidForm(true);
+      };
     }
+    validForm && console.log("Success");
   };
 
   const isValid = (target) => {
@@ -27,14 +30,8 @@ export default function SignUp() {
     }
   };
 
-  // useEffect(() => {
-  //   if (validForm) {
-  //     console.log("Success");
-  //   }
-  // });
-
   return (
-    <SignUpForm onSubmit={submit} validForm={`${validForm}`}>
+    <SignUpForm onSubmit={onSubmit} validForm={`${validForm}`}>
       <InputWrap valid={`${validForm ? validForm : fName.valid }`} errormsg='First Name cannot be empty'>
         <input
           type='text'

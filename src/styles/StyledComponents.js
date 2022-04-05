@@ -39,6 +39,7 @@ export const ContentWrapper = styled.div`
 
   @media (max-width: 1080px) {
     text-align: center;
+    background-image: url(${process.env.PUBLIC_URL + "/images/bg-intro-mobile.png"});
   }
 `;
 
@@ -57,5 +58,28 @@ export const PromoBtn = styled.button`
   line-height: 1.6em;
   &:hover {
     transform: scale(1.1);
+  }
+`;
+
+export const SuccessModal = styled.div`
+  background-image: url(${process.env.PUBLIC_URL + "/images/confetti-test.gif"});
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100vh;
+  width: 100%;
+  opacity: 80%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+  &::after{
+    content: "Success";
+    font-size: 6em;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: hsl(248, 32%, 20%);
   }
 `;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SignUpForm, InputWrap } from "../styles/FormStyles";
 
-export default function SignUp() {
+export default function SignUp({ setSuccess }) {
   const input = { value: "", valid: false };
   const [email, setEmail] = useState(input);
   const [fName, setFName] = useState(input);

@@ -1,10 +1,13 @@
 import "./App.css";
+import { useState } from "react";
 import SignUp from "./components/SignUp";
 import { ContentWrapper, PromoBtn } from "./styles/StyledComponents";
-
+import { SuccessModal } from "./styles/StyledComponents";
 function App() {
+  const [success, setSuccess] = useState("false")
   return (
     <div className='App'>
+      <SuccessModal display={success}/>
       <ContentWrapper>
         <section>
           <h1>Learn to code by watching others</h1>
@@ -18,7 +21,7 @@ function App() {
           <PromoBtn>
             <b>Try it free 7 days</b> then $20/mo. thereafter
           </PromoBtn>
-          <SignUp />
+          <SignUp setSuccess={setSuccess}/>
         </section>
       </ContentWrapper>
     </div>

@@ -18,27 +18,6 @@ export const SignUpForm = styled.form`
       color: hsl(0, 100%, 74%);
     }
   }
-  & > div {
-    & > input {
-      border: 2px solid lightgrey;
-      outline: none;
-      padding: 3.5%;
-      font-family: "Poppins";
-      font-weight: 600;
-      font-size: 1em;
-      border-radius: 0.5em;
-      width: 93%;
-      &:focus {
-        border: 2px solid hsl(249, 10%, 26%);
-      }
-      ${({ valid }) =>
-        valid &&
-        `
-        border: 2px solid red;
-      `}
-    }
-  }
-
   input[type="submit"] {
     background-color: hsl(154, 59%, 51%);
     color: white;
@@ -47,7 +26,53 @@ export const SignUpForm = styled.form`
     letter-spacing: 0.15em;
     padding: 3.5%;
     border-radius: 0.5em;
-    border: 2px solid hsl(154, 40%, 51%);
-    box-shadow: 0px 4px 0px hsl(154, 40%, 51%);
+    border: none;
+    box-shadow: 0px 4px 0px hsl(154, 50%, 40%);
+    cursor: pointer;
+    &:hover{
+        background-color: hsl(154, 70%, 60%);
+    }
+  }
+`;
+export const InputWrap = styled.div`
+  border: 2px solid ${({ valid }) => (valid === "true" ? `lightgrey` : `red`)};
+  border-radius: 0.5em;
+  position: relative;
+  &:focus-within {
+    border: 2px solid
+      ${(props) => (props.valid === "true" ? `hsl(249, 10%, 26%)` : `red`)};
+  }
+  & > input {
+    border: none;
+    outline: none;
+    padding: 3.5%;
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 1em;
+    border-radius: 0.5em;
+    width: 93%;
+  }
+
+  &::before {
+    ${({ valid }) => valid === "true" && `display: none`}
+    content: "${({ errormsg }) => errormsg}";
+    font-style: italic;
+    font-size: 0.8em;
+    position: absolute;
+    bottom: -40%;
+    right: 0%;
+    color: hsl(0, 100%, 74%);
+  }
+
+  &::after {
+    ${({ valid }) => valid === "true" && `display: none`}
+    content: "";
+    background-image: url(${process.env.PUBLIC_URL + "/images/icon-error.svg"});
+    padding: 12px;
+    border-radius: 50%;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
   }
 `;

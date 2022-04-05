@@ -43,4 +43,8 @@ export const PromoBtn = styled.button`
   border-radius: 0.5em;
   background-color: hsl(248, 32%, 49%);
   color: white;
+  transition: transform 0.3s;
+  &:hover{
+      transform: scale(1.1);
+  }
 `;

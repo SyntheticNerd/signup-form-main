@@ -73,7 +73,7 @@ export const InputWrap = styled.div`
     font-style: italic;
     font-size: 0.8em;
     position: absolute;
-    bottom: -40%;
+    top: 105%;
     right: 0%;
     color: hsl(0, 100%, 74%);
   }
@@ -89,4 +89,5 @@ export const InputWrap = styled.div`
     top: 50%;
     transform: translateY(-50%);
   }
+  ${({ valid }) => valid === "false" && `margin-bottom: min(2em, 5%);`}
 `;

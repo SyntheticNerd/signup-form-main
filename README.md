@@ -50,7 +50,7 @@ Users should be able to:
 
 ### What I learned
 
-Making forms can be fun and create a lot of opportunities to interact with the user. I know I tend to dislike filling out forms of any kind on a website, and I believe many feel the same. Making forms interactive can be means of breaking the monotony of filling out field after field. This is not my first time working with dynamic forms i have implemented similar solutions with vanilla JS. This project relies heavily on the `useState` hook in order to update the form information and determine validity.
+Making forms can be fun and create a lot of opportunities to interact with the user. I know I tend to dislike filling out forms of any kind on a website, and I believe many feel the same. Making forms interactive can be means of breaking the monotony of filling out field after field. This is not my first time working with dynamic forms I have implemented similar solutions with vanilla JS. This project relies heavily on the `useState` hook in order to update the form information and determine validity.
 
 ```javascript
 const input = { value: "", valid: false };
@@ -60,9 +60,9 @@ const [lName, setLName] = useState(input);
 const [password, setPassword] = useState(input);
 const [validForm, setValidForm] = useState(true);
 ```
-By using and object in my state I am able to track validity of each individual input as well as its value separately from the form itself.
+ Tracked the validity of each individual input as well as its value separately from the form itself by using an object in the state.
 
-To check validity i took advantage of the html input type features and the js `checkValidity()` function.
+Took advantage of the html input type features and the js `checkValidity()` function to determine validity.
 
 ```javascript
 const isValid = (target) => {
@@ -74,10 +74,24 @@ const isValid = (target) => {
   };
 }
 ```
+Diet Implementation of the Holy Albatross
+```css
+parent {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  & > section {
+    flex-basis: 400px;
+    flex-grow: 1;
+  }
+}
+```
 
 ### Useful resources
 
-- [Kevin Powell on the Holy Albatross](https://youtu.be/fuiEYR6Hoe0) - This gave me the inspiration for how i handle the media change. I wanted to make the page mobile friendly without media queries.
+- [Kevin Powell on the Holy Albatross](https://youtu.be/fuiEYR6Hoe0) - This gave me the inspiration for how to handle the media changes. I wanted to make the page mobile friendly without media queries.
 
 
 ## Author
